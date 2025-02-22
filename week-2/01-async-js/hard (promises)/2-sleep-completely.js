@@ -5,6 +5,13 @@
  */
 
 function sleep(milliseconds) {
-}
+    return new Promise((resolve, reject)=>{
+        const start = performance.now(); // Get the current timestamp
+        while (performance.now() - start < milliseconds) {
+            // Busy wait (does nothing but keeps the thread occupied)
+        }
+        resolve();
+    })
+}    
 
 module.exports = sleep;
